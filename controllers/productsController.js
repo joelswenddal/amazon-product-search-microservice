@@ -91,7 +91,7 @@ function logErrorMessage(error) {
 }
 
 /******************** Controller Functions ***************************/
-
+// ROUTE: /products?search=[search string]&author=[search string]&product=[search string]
 router.get('/', async (req, res, next) => {
 
     try {

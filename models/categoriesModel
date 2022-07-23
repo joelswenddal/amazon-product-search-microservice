@@ -1,0 +1,85 @@
+
+'use strict';
+
+const ds = require('../datastore');
+const datastore = ds.datastore;
+
+const CAT = "Categories";
+
+function generateError(codeString, functionName) {
+
+    let err = new Error(codeString);
+    console.log(`ERROR: ${codeString} thrown in ${functionName}`);
+    err.statusCode = codeString;
+
+    return err;
+};
+
+async function updateCategories(id, data) {
+
+    let key;
+    let kind = CAT;
+
+    if (id) {
+        //if there's an id, then it is an update
+        key = datastore.key([kind, parseInt(id, 10)]);
+
+    } else {
+        //if no id, it is a create
+        key = datastore.key(kind);
+        //create an empty students property array
+        //data.students = [];
+    }
+
+    const entity = {
+        key: key,
+        data: ds.toDatastore(data, ['description'])
+    };
+
+    try {
+        await datastore.save(entity);
+
+        console.log(`Category id # ${entity.key.id} updated successfully`);
+
+        data.id = entity.key.id;
+
+        return data;
+
+    } catch (err) {
+
+        console.error('ERROR caught in updateCategory model');
+
+        throw err;
+
+    }
+}
+
+//returns all catgories
+async function listCategories() {
+
+    try {
+
+        const kind = CAT;
+
+        const q = datastore.createQuery(kind);
+
+        let results = {};
+
+        let entities = await datastore.runQuery(q);
+
+        results.cats = entities[0].map(ds.fromDatastore);
+
+        return results;
+
+    } catch (err) {
+
+        console.error('ERROR caught in listCategory model');
+
+        throw err;
+    }
+}
+
+module.exports = {
+    updateCategories,
+    listCategories
+};

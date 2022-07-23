@@ -2,4 +2,5 @@
 
 const router = module.exports = require('express').Router();
 
-router.use('/products', require('./controllers/productsController.js'));
+router.use('/categories', require('./controllers/categoriesController.js'));
+router.use('/demo', require('./controllers/demoController.js'));

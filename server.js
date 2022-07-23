@@ -13,12 +13,20 @@ app.use('/', require('./index'));
 //Serve static content from the public folder
 app.use(express.static('public'));
 
+//added for the Handlebars view engine
+//********************************************** */
+app.set('views', './views');
+app.set('view engine', 'hbs');
+//*********************************************** */
+
 // Fallback Middleware function for returning 
-// 404 error for undefined paths
+// 405 error for undefined paths
+
 const invalidPathHandler = (request, response, next) => {
     response.status(405)
     response.send('Method not allowed. This is not a valid path for this API. Please consult documentation');
 }
+
 
 // Error handling Middleware function for logging the error message
 const errorLogger = (error, request, response, next) => {

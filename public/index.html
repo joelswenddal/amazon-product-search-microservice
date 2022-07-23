@@ -33,7 +33,7 @@
         </div>
     </nav>
     <div class="container mt-2">
-        <h1>Amazon Product Category Verification API</h1>
+        <h1>Amazon Office Product Category Verification API</h1>
         <hr>
     </div>
     <div class="container">
@@ -44,7 +44,7 @@
                     <div class="form-group my-1 p-2 rounded" style="background-color: #e3eae7;">
                         <label for="categoryName">Category Name</label>
                         <input type="text" class="form-control my-2" id="categoryNameInput"
-                            placeholder="Category name to validate" name="categoryName">
+                            placeholder="Enter name to search (e.g, 'Paper')" name="categoryName">
                         <input type="submit" value="Verify">
                     </div>
                 </form>
@@ -65,9 +65,29 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <h5>Overview</h5>
-            <p></p>
+            <p>This API provides the ability to check whether a character string matches the name
+                of an Amazon product category in root category "Office Products" on Amazon's website.</p>
+            <h5>Requests</h5>
+            <p><b>To verify whether a category exists, make a HTTP GET request to the URL:</b></p>
+            <p>&nbsp;&nbsp;&nbsp;https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/ + [category name
+                to
+                search
+                for]
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;(e.g.,
+                <i>https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/paper</i>)
+            </p>
+            <p><b>To get a list of all the categories in the database, make a HTTP GET request to the URL:</b></p>
+            <p>&nbsp;&nbsp;&nbsp;https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/listCategories
+            </p>
+            <h5>Responses</h5>
+            <p>Responses are JSON objects with the following key/value members:</p>
+        </div>
+        <div class="row mb-3">
+            <br>
+            <br>
         </div>
     </div>
     <footer class="border-top footer text-muted fixed-bottom my-3">

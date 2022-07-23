@@ -34,32 +34,49 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <row>
-            <div class="text-wrap">
-                <h2>Thanks for your search!</h2>
-                <p><i>Your results are below: </i></p>
-            </div>
-        </row>
-        <row>
-            <div class="text-wrap" style="background-color: #e3eae7">
-                <p>{</p>
-                <p> "categoryName": "<i>{{catName}}</i>"</p>
-
-                <p> "validCategory": <i>{{validityCheck}}</i></p>
-
-                <p> "categoryNumber": <i>{{catNum}}</i></p>
-
-                <p> "path": <i>{{path}}</i></p>
-
-                <p> "url": <i><a href={{navUrl}} target="_blank">{{pageUrl}}</a></i></p>
-                <p>}</p>
-            </div>
-        </row>
+    <div class="container mt-2">
+        <h1>Amazon Office Product Category Verification API</h1>
+        <hr>
     </div>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Joel Swenddal - Oregon State University | <a href="#">Home</a>
+    <div class="container">
+        <div class="row justify-content-lg-center">
+            <div class="col-lg-5 m-2" id="searchColumn">
+                <div class="row">
+                    <form action="https://amaz-search-swenddaj-1018.uc.r.appspot.com/demo/search" method="POST">
+                        <h5>Demo request</h5>
+                        <div class="form-group my-1 p-2 rounded" style="background-color: #e3eae7;">
+                            <label for="categoryName">Category Name</label>
+                            <input type="text" class="form-control my-2" id="categoryNameInput"
+                                placeholder="Enter name to search (e.g, 'Paper')" name="categoryName">
+                            <input type="submit" value="Verify">
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <a href="https://amaz-search-swenddaj-1018.uc.r.appspot.com" class="btn btn-md mt-1"
+                            style="background-color: #247923; color: white">Return to Home</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 m-2" id="resultColumn">
+                <h5>Result for search on: <i>{{catName}}</i></h5>
+                <div class="container p-2 pb-1 text-light rounded" id="resultContainer"
+                    style="background-color:#2f342f">
+                    <p>&nbsp;{</p>
+                    <p>&nbsp;&nbsp;&nbsp;"validCategory": <i>{{validityCheck}}</i></p>
+                    <p>&nbsp;&nbsp;&nbsp;"categoryName": "<i>{{catName}}</i>"</p>
+                    <p>&nbsp;&nbsp;&nbsp;"categoryNumber": "<i>{{catNum}}"</i></p>
+                    <p>&nbsp;&nbsp;&nbsp;"path": "<i>{{path}}</i>"</p>
+                    <p>&nbsp;&nbsp;&nbsp;"url": "<i><a href={{navUrl}} target="_blank">{{pageUrl}}</a></i>"</p>
+                    <p>&nbsp;}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="border-top footer text-muted fixed-bottom my-3">
+        <div class="container"></div>
+        &copy; 2022 - Joel Swenddal - Oregon State University | <a href="#">Home</a>
         </div>
     </footer>
 

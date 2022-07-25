@@ -61,39 +61,58 @@
         </div>
         <div class="row">
             <div class="container mt-2">
-                <h2>API Instructions</h2>
+                <h2>Instructions</h2>
                 <hr>
             </div>
         </div>
         <div class="row mb-3">
-            <h5>Overview</h5>
-            <p>This API provides the ability to check whether a character string matches the name
-                of an Amazon product category in root category "Office Products" on Amazon's website.</p>
-            <h5>Requests</h5>
-            <p><b>To verify whether a category exists, make a HTTP GET request to the URL:</b></p>
-            <p>&nbsp;&nbsp;&nbsp;https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/ + [category name
+            <div class="container mb-2">
+                <h5>Overview</h5>
+                <p>This API provides the ability to check whether a character string matches the name
+                    of an Amazon product category in the root category "Office Products" on Amazon's website.
+                    Requests are made via HTTP and responses are returned via HTTP in JSON format. Successful
+                    responses have a 200 Status Code.</p>
+            </div>
+            <div class="container mb-2">
+                <h5>Requests</h5>
+
+                <p><b>To verify whether a category exists, make a HTTP GET request to the URL:</b></p>
+                <div class="container pt-2 pb-1 mb-2" style="background-color: #e3eae7">
+                    <p><code>https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/ + [category name
                 to
                 search
-                for]
-            </p>
-            <p>&nbsp;&nbsp;&nbsp;(e.g.,
-                <i>https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/paper</i>)
-            </p>
-            <p><b>To get a list of all the categories in the database, make a HTTP GET request to the URL:</b></p>
-            <p>&nbsp;&nbsp;&nbsp;https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/listCategories
-            </p>
-            <h5>Responses</h5>
-            <p>Responses are JSON objects with the following key/value members:</p>
+                for]</code>
+                    </p>
+                    <p>(e.g.,
+                        <code>https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/search/paper</code>)
+                    </p>
+                </div>
+                <p><b>To get a list of all the categories in the database, make a HTTP GET request to the URL:</b></p>
+                <div class="container pt-2 pb-1" style="background-color: #e3eae7">
+                    <p><code>https://amaz-search-swenddaj-1018.uc.r.appspot.com/categories/listCategories</code></p>
+                </div>
+            </div>
+            <div class="container mb-2">
+                <h5>Responses</h5>
+                <p>Responses are JSON objects with the following key/value members:</p>
+                <div class="container pt-2 pb-1" style="background-color: #e3eae7">
+                    <p><code>{</code></p>
+                    <p><code>"validCategory": bool, </code></p>
+                    <p><code>"categoryName": string, </code></p>
+                    <p><code>"categoryNumber": string, </code></p>
+                    <p><code>"url": string,</code></p>
+                    <p><code>"path": string</code></p>
+                    <p><code>}</code></p>
+                </div>
+            </div>
         </div>
         <div class="row mb-3">
             <br>
             <br>
         </div>
     </div>
-    <footer class="border-top footer text-muted fixed-bottom my-3">
-        <div class="container">
-            &copy; 2022 - Joel Swenddal - Oregon State University | <a href="#">Home</a>
-        </div>
+    <footer class="text-sm-start bg-light text-muted p-3">
+        &copy; 2022 - Joel Swenddal - Oregon State University | <a href="#">Home</a>
     </footer>
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -101,7 +120,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

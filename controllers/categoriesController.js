@@ -25,7 +25,6 @@ function getCatModel() {
 
 /******************** Controller Functions ***************************/
 
-
 /*******************MAIN CATEGORY CHECK ENDPOINT *********************/
 // Route checks categoryName parameter in db to see if it is a valid name
 // ROUTE: categories/search/:categoryName
@@ -34,7 +33,7 @@ router.get('/search/:categoryName', async (req, res, next) => {
 
         let categoryName = req.params.categoryName.trim();
 
-        console.log(`Controller received Category Name to search: ${categoryName}`);
+        console.log(`SUCCESS!: Server received Category Name to search: ${categoryName}`);
 
         let allCategories = await getCatModel().listCategories();
         let categoriesList = allCategories.cats;
@@ -64,8 +63,9 @@ router.get('/search/:categoryName', async (req, res, next) => {
             match.path = "NA";
         }
 
-        console.log(JSON.stringify(match));
+        //console.log(JSON.stringify(match));
         res.status(200).send(match);
+        console.log("NOTICE! Server sent response. Valid category found?: " + JSON.stringify(match.validCategory))
 
     } catch (err) {
 

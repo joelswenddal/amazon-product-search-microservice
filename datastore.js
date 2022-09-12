@@ -2,7 +2,6 @@
 
 const { Datastore } = require('@google-cloud/datastore');
 const projectId = process.env.PROJECT_ID;
-//const projectId = 'amaz-search-swenddaj-1018'
 
 module.exports.Datastore = Datastore;
 //module.exports.datastore = new Datastore();
